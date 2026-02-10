@@ -1,10 +1,3 @@
-# plataforma_utp_streamlit.py
-#
-# Plataforma UTP – Syllabus to Excel
-# Módulos incluidos:
-#   - Home (vacío, solo layout)
-#   - Convert Syllabus to Excel
-# =======================================================================
 import os
 import re
 import unicodedata
@@ -321,16 +314,46 @@ def render_simple_step_header(step_label: str, title: str):
         unsafe_allow_html=True,
     )
 
-
 # ======================================================
-# UI – HOME (VACÍO)
+# UI – HOME
 # ======================================================
 
 def render_home():
-    """Home vacío, solo con el hero."""
+    """Home con descripción y funcionalidades de la plataforma."""
+    # Hero superior existente
     render_hero()
-    st.write("")
 
+    # Contenido tipo ficha debajo del hero
+    st.markdown('<div class="utp-step-card">', unsafe_allow_html=True)
+
+    st.markdown(
+        """
+### 🏠 Home
+
+Plataforma UTP - Transformación de Sílabos a Excel es una herramienta inteligente desarrollada para automatizar la conversión de documentos académicos (sílabos) en formato Word a datos estructurados en Excel.  
+
+Su objetivo principal es optimizar los procesos de gestión de carga de datos en la plataforma de Diseña +, reduciendo significativamente el tiempo de procesamiento manual y garantizando la consistencia en la estructuración de la información.
+
+### ✨ Funcionalidades Principales
+
+- **Carga Múltiple de Documentos Word.** Permite cargar uno o varios archivos Word (.docx) de manera simultánea.  
+- **Extracción Inteligente de Datos.** La plataforma identifica y extrae automáticamente las siguientes secciones clave:
+    - 📅 **Cronograma de Actividades** (Unidades de aprendizaje, distribución por semanas y sesiones, temas específicos por clase, actividades y evaluaciones programadas)
+    - 📊 **Sistema de Evaluación** (Tipos de evaluación —parciales, trabajos, prácticas—, pesos porcentuales de cada componente, observaciones y criterios de calificación)
+    - 🎓 **Información Académica** (Datos generales del curso —carrera, créditos, horas—, logros generales y específicos de aprendizaje, metodología de enseñanza, unidades de aprendizaje y temarios detallados)
+
+Genera archivos Excel con múltiples hojas organizadas:
+
+- Cronograma completo de actividades  
+- Sistema de evaluación estructurado  
+- Datos generales del curso  
+- Logros y metodología  
+- Unidades de aprendizaje detalladas  
+        """,
+        unsafe_allow_html=False,
+    )
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # ======================================================
 # LÓGICA – CONVERT SYLLABUS TO EXCEL
@@ -1591,7 +1614,6 @@ def render_syllabus_to_excel():
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-
 # ======================================================
 # MAIN
 # ======================================================
@@ -1644,11 +1666,9 @@ def main():
     elif page == "Convert Syllabus to Excel":
         render_syllabus_to_excel()
 
-
 if __name__ == "__main__":
-    # Ejecutar con:
-    #   streamlit run plataforma_utp_streamlit.py
     main()
+
 
 
 
