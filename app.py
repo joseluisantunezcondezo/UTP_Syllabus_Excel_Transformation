@@ -22,15 +22,14 @@ def apply_global_styles():
     st.markdown(
         """
         <style>
-        /* Fondo general */
-        [data-testid="stAppViewContainer"] {
-            background: #f3f4f6;
-        }
-        [data-testid="stSidebar"] {
-            background: #f9fafb;
+        /* Reducir tamaño base de fuente para que todo se vea más compacto */
+        html {
+            font-size: 11px;  /* en lugar de 16px */
         }
 
-        /* Hero principal */
+        [data-testid="stAppViewContainer"] { background: #f3f4f6; }
+        [data-testid="stSidebar"] { background: #f9fafb; }
+
         .utp-hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 18px;
@@ -42,6 +41,7 @@ def apply_global_styles():
             align-items: center;
             gap: 1.0rem;
         }
+
         .utp-hero-icon {
             width: 3.1rem;
             height: 3.1rem;
@@ -1668,6 +1668,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
 
 
 
